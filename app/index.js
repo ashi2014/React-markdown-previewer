@@ -20,16 +20,18 @@ var MarkdownPreviewer = React.createClass({
   render: function(){
     return (
         <div className="container">
-            <h1 className="text-center">Markdown Previewer</h1>
-            <div className="col-sm-8 col-sm-offset-2" style={{background: "pink"}}>
-                <div className="col-sm-6">
-                    <textarea rows="20" cols="50" onChange={this.handleInputChange}></textarea>
+            <h1 className="text-center" style={{marginBottom: '50px'}}>Markdown Previewer</h1>
+            <div className="container">
+                <div style={{display: 'inline-block'}}>
+                    <textarea placeholder="Type markdown here" rows="30" cols="80" onChange={this.handleInputChange}></textarea>
                 </div>
-                <div className="col-sm-6 preview-area" style={{background: "blue"}} dangerouslySetInnerHTML={this.getMarkdown()}>
+                <div style={{display: 'inline-block', marginLeft: '20px'}}>
+                    <div dangerouslySetInnerHTML={this.getMarkdown()}></div>
                 </div>
             </div>
         </div>
     )
   }
 });
+
 ReactDOM.render(<MarkdownPreviewer />, document.getElementById('app'));
